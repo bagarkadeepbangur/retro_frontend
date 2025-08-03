@@ -1,20 +1,20 @@
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
 const Header: React.FC = () => {
   const storedUser = localStorage.getItem('user');
   const user = storedUser ? JSON.parse(storedUser).name : null;
-  const handleLogout = async () => {
-    try {
-      console.log("Clicked here")
-      const response=await axios.post("http://localhost:8800/api/user/logout");
-      console.log("response-->",response)
-    } catch (err) {
-      console.error("Failed to fetch boards:", err);
-    } finally {
-      console.log("Logout Successfully")
-      window.location.href="http://localhost:5174/";
-    }
-  };
+  // const handleLogout = async () => {
+  //   try {
+  //     console.log("Clicked here")
+  //     const response=await axios.post("http://localhost:8800/api/user/logout");
+  //     console.log("response-->",response)
+  //   } catch (err) {
+  //     console.error("Failed to fetch boards:", err);
+  //   } finally {
+  //     console.log("Logout Successfully")
+  //     window.location.href="http://localhost:5174/";
+  //   }
+  // };
   
   return (
     <header className="flex justify-between items-center bg-slate-600 shadow-md text-white" style={{display:"flex",justifyContent:"space-between",backgroundColor:"#36454F"}}>
