@@ -61,7 +61,7 @@ const Home: React.FC = () => {
       const token = localStorage.getItem("userInfo");
       console.log("retro board token-->",token)
       if (!token) {
-        window.location.href = 'taskmanager-frontend-ten.vercel.app/log-in?redirect=retro-frontend-liard.vercel.app/';
+        window.location.href = 'https://taskmanager-frontend-ten.vercel.app/log-in?redirect=https://retro-frontend-liard.vercel.app/';
         return;
       }
     }
