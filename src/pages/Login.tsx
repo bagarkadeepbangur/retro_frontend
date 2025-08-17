@@ -233,7 +233,7 @@ const Login: React.FC = () => {
        * Endpoint example: POST /auth/login  body: { email, password }
        */
       const res = await API.post("/boards/login", { email, password });
-    //   console.log(res)
+      console.log(res)
       const token = res.data?.token;
       localStorage.setItem('user', JSON.stringify(res.data.user));
       if (!token) throw new Error("Token not found in response");
