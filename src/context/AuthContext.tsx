@@ -1,6 +1,6 @@
 // src/context/AuthContext.tsx
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { isAuthenticated, saveToken, clearSession, getToken } from "../auth";
+import { isAuthenticated, saveToken, clearSession } from "../auth";
 import API  from "../api/axios";
 type AuthContextType = {
   loggedIn: boolean;

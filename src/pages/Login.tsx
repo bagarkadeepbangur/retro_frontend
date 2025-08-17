@@ -1,5 +1,5 @@
 // src/pages/Login.tsx
-import React, { useEffect, useMemo, useState} from "react";
+import React, { useMemo, useState} from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import API  from "../api/axios";
@@ -10,8 +10,8 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState<string | null>(null);
+//   const [loading, setLoading] = useState(false);
+//   const [err, setErr] = useState<string | null>(null);
   const [showPwd, setShowPwd] = useState(false);
 
   // If already logged in, go home
