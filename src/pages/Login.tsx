@@ -10,7 +10,7 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-//   const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 //   const [err, setErr] = useState<string | null>(null);
   const [showPwd, setShowPwd] = useState(false);
 
@@ -224,7 +224,7 @@ const Login: React.FC = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // setErr(null);
-    // setLoading(true);
+    setLoading(true);
     try {
       /**
        * Expected backend response (example):
@@ -242,7 +242,7 @@ const Login: React.FC = () => {
         console.log("Login failed",e.message)
     //   setErr(e?.response?.data?.message || e.message || "Login failed");
     } finally {
-    //   setLoading(false);
+      setLoading(false);
     }
   };
 
@@ -328,7 +328,7 @@ const Login: React.FC = () => {
           </div> */}
 
           <button type="submit" style={styles.submit}>
-            Sign in
+            {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
 
