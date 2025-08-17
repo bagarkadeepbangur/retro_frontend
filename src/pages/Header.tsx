@@ -1,13 +1,15 @@
 import React from "react";
+// import API  from "../api/axios";
+import { useAuth } from "../context/AuthContext";
 // import axios from "axios";
 const Header: React.FC = () => {
+  const { logout } = useAuth();
   const storedUser = localStorage.getItem('user');
   const user = storedUser ? JSON.parse(storedUser).name : null;
   // const handleLogout = async () => {
   //   try {
-  //     console.log("Clicked here")
-  //     const response=await axios.post("http://localhost:8800/api/user/logout");
-  //     console.log("response-->",response)
+  //     console.log("logout clicked...")
+      
   //   } catch (err) {
   //     console.error("Failed to fetch boards:", err);
   //   } finally {
@@ -32,8 +34,8 @@ const Header: React.FC = () => {
           <span className="text-sm font-medium text-white" style={{color:"White"}}>{user}</span>
         </div>
 
-        {/* <button className="flex items-center gap-1 hover:text-gray-300 transition" onClick={handleLogout}>
-          <svg
+        <button className="flex items-center gap-1 hover:text-gray-300 transition" onClick={logout}>
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
             fill="none"
@@ -46,9 +48,9 @@ const Header: React.FC = () => {
               strokeWidth={2}
               d="M17 16l4-4m0 0l-4-4m4 4H7"
             />
-          </svg>
-          <span className="text-sm">Log Out</span> */}
-        {/* </button> */}
+          </svg> */}
+          <span className="text-sm">Log Out</span>
+        </button>
       </div>
     </header>
   );
