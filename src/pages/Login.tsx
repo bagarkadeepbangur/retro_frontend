@@ -223,8 +223,8 @@ const Login: React.FC = () => {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErr(null);
-    setLoading(true);
+    // setErr(null);
+    // setLoading(true);
     try {
       /**
        * Expected backend response (example):
@@ -239,9 +239,10 @@ const Login: React.FC = () => {
       login(token);
       navigate("/", { replace: true });
     } catch (e: any) {
-      setErr(e?.response?.data?.message || e.message || "Login failed");
+        console.log("Login failed",e.message)
+    //   setErr(e?.response?.data?.message || e.message || "Login failed");
     } finally {
-      setLoading(false);
+    //   setLoading(false);
     }
   };
 
