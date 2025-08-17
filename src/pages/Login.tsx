@@ -4,6 +4,7 @@ import { useNavigate, Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import API  from "../api/axios";
 import { isAuthenticated } from "../auth";
+import Toast from "./toast";
 
 const Login: React.FC = () => {
   const { login } = useAuth();
@@ -13,7 +14,7 @@ const Login: React.FC = () => {
   const [loading, setLoading] = useState(false);
 //   const [err, setErr] = useState<string | null>(null);
   const [showPwd, setShowPwd] = useState(false);
-
+  const [toastMsg, setToastMsg] = useState<string | null>(null);
   // If already logged in, go home
   if (isAuthenticated()) {
     return <Navigate to="/" replace />;
@@ -239,8 +240,8 @@ const Login: React.FC = () => {
       login(token);
       navigate("/", { replace: true });
     } catch (e: any) {
-        console.log("Login failed",e.message)
-    //   setErr(e?.response?.data?.message || e.message || "Login failed");
+        const msg = e?.response?.data?.message || e.message || "Login failed";
+        setToastMsg(msg);
     } finally {
       setLoading(false);
     }
@@ -331,7 +332,14 @@ const Login: React.FC = () => {
             {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
-
+        {toastMsg && (
+            <Toast
+            message={toastMsg}
+            type="error"
+            duration={3000}         // auto-hide in 3s
+            onClose={() => setToastMsg(null)}
+            />
+        )}
         {/* <div style={styles.footer}>
           Don’t have an account?
           <span style={styles.signUp}> Sign up</span>
