@@ -240,6 +240,7 @@ const Login: React.FC = () => {
       login(token);
       navigate("/", { replace: true });
     } catch (e: any) {
+        console.log("LOGIN Failed")
         const msg = e?.response?.data?.message || e.message || "Login failed";
         setToastMsg(msg);
     } finally {
@@ -336,7 +337,7 @@ const Login: React.FC = () => {
             <Toast
             message={toastMsg}
             type="error"
-            duration={3000}         // auto-hide in 3s
+            duration={5000}         // auto-hide in 3s
             onClose={() => setToastMsg(null)}
             />
         )}
