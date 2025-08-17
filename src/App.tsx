@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
-
+import { Navigate } from "react-router-dom";
 const App: React.FC = () => {
   return (
     <AuthProvider>
@@ -15,7 +15,8 @@ const App: React.FC = () => {
           <Route element={<ProtectedRoute />}>
               <Route path="/" element={<Home />} />
           </Route>
-          <Route path="*" element={<Login />} />
+          {/* <Route path="*" element={<Login />} /> */}
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </Router>
     </AuthProvider>
